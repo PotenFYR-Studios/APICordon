@@ -1,0 +1,70 @@
+name: Deploy docs to GitHub Pages
+
+# Organization standard: GitHub Pages deployed from a validated build
+# artifact via the official Pages actions. No gh-pages branch is used or
+# created. Canonical custom domain: apicordon.docs.potenfyr.in (CNAME at
+# repo root is included in the artifact).
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "_config.yml"
+      - "CNAME"
+      - "README.md"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "docs/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build site (Jekyll)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Verify production output
+        run: |
+          test -f _site/index.html || { echo "FATAL: _site/index.html missing"; exit 1; }
+          test -f _site/CNAME && grep -qx "apicordon.docs.potenfyr.in" _site/CNAME \
+            || { echo "FATAL: CNAME missing/incorrect"; exit 1; }
+          test -f _site/robots.txt || echo "WARN: robots.txt missing"
+          test -f _site/sitemap.xml || echo "WARN: sitemap.xml missing"
+          echo "Artifact validation passed"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
