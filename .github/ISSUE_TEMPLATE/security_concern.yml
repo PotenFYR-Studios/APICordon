@@ -1,0 +1,45 @@
+name: 🔒 Security concern
+description: Non-confidential security feedback (for vulnerabilities use private reporting instead)
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **This template is for non-confidential security feedback only**: hardening ideas, permission questions, defense-in-depth suggestions.
+
+        **If you are reporting an actual vulnerability, STOP; do not use this public template.**
+        Use [private vulnerability reporting](https://github.com/PotenFYR-Studios/APICordon/security/advisories/new) instead (see [SECURITY.md](https://github.com/PotenFYR-Studios/APICordon/blob/master/SECURITY.md)).
+
+        **Rules for this form:**
+
+        - **No secrets, tokens, cookies or keys**; redact everything sensitive
+        - **No proof-of-concept exploit code or step-by-step exploitation detail** for anything potentially exploitable; that belongs in a private report
+        - Describe impact in plain terms, not weaponized detail
+  - type: textarea
+    id: concern
+    attributes:
+      label: What is your concern or suggestion?
+      description: What could be hardened, and why? Keep it non-actionable.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - GitHub workflow / CI permissions
+        - Documentation site
+        - Templates / community process
+        - Future design (discovery / correlation / PR feedback)
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Acknowledgements
+      options:
+        - label: This is not a confidential vulnerability (those go to private reporting)
+          required: true
+        - label: My report contains no secrets and no exploit proof-of-concept
+          required: true

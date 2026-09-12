@@ -1,0 +1,21 @@
+name: ❓ Question
+description: Ask anything about APICordon that the docs don't answer
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have you checked the [docs](https://apicordon.docs.potenfyr.in) and the [FAQ](https://apicordon.docs.potenfyr.in/docs/roadmap/)? If not there, ask away; questions that reveal confusing docs are treated as documentation bugs and are very welcome.
+
+        **Never include credentials, tokens or private data in your question.**
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What you already tried or read, so we can point you somewhere useful.

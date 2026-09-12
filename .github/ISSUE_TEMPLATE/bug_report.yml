@@ -1,0 +1,54 @@
+name: 🐛 Bug report
+description: Something in the docs site, templates or workflows is broken
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. APICordon is in early development; the current codebase is the docs site and repository tooling.
+
+        **Never include credentials, tokens or private data in this report.**
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, including what you expected to happen instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps, links to the affected page/file, or the command you ran.
+      placeholder: |
+        1. Open https://apicordon.docs.potenfyr.in/…
+        2. …
+        3. Error / wrong output
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Documentation site (content)
+        - Documentation site (build / tooling)
+        - GitHub workflow / CI
+        - Templates / community files
+        - Other / not sure
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser and OS (for site issues), or Bun version (`bun --version`) for build issues.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I have searched existing issues for duplicates
+          required: true
+        - label: This report contains no secrets or private data
+          required: true

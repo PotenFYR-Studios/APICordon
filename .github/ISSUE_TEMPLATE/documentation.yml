@@ -1,0 +1,31 @@
+name: 📖 Documentation
+description: Something in the docs or README is wrong, unclear or missing
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Page URL, heading or file path the issue is about.
+      placeholder: "https://apicordon.docs.potenfyr.in/docs/how-it-works/ ('Step 2: Correlation')"
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What's wrong?
+      description: Outdated, incorrect, confusing or missing; be specific.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix
+      description: What should it say instead? Proposals for new pages are welcome too.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked the latest docs at apicordon.docs.potenfyr.in (not a cached copy)
+          required: true

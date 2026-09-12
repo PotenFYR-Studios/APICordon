@@ -147,6 +147,10 @@ vite.config.ts.timestamp-*
 Thumbs.db
 .idea/
 
+# APICordon docs app build output + dependencies
+docs/dist/
+docs/node_modules/
+
 CLAUDE.md
 .rtk
 .plan

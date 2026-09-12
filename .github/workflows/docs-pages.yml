@@ -1,0 +1,86 @@
+name: Docs site — build & deploy to GitHub Pages
+
+# Organization standard: GitHub Pages deployed from a validated Vite build
+# artifact via the official Pages actions. No gh-pages branch is used or
+# created. Canonical custom domain: apicordon.docs.potenfyr.in (CNAME lives
+# at docs/public/CNAME and is emitted into the artifact).
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "docs/**"
+      - "README.md"
+      - ".github/workflows/docs-pages.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "README.md"
+      - ".github/workflows/docs-pages.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        working-directory: docs
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck
+        working-directory: docs
+        run: bun run typecheck
+
+      - name: Build site
+        working-directory: docs
+        run: bun run build
+
+      - name: Verify production output
+        run: |
+          test -f docs/dist/index.html || { echo "FATAL: docs/dist/index.html missing"; exit 1; }
+          DOCS_COUNT=$(find docs/dist -name 'index.html' | wc -l)
+          [ "$DOCS_COUNT" -ge 8 ] || { echo "FATAL: expected >=8 emitted routes, got $DOCS_COUNT"; exit 1; }
+          test -f docs/dist/CNAME || { echo "FATAL: docs/dist/CNAME missing"; exit 1; }
+          grep -qx "apicordon.docs.potenfyr.in" docs/dist/CNAME || { echo "FATAL: CNAME mismatch"; exit 1; }
+          test -f docs/dist/robots.txt || { echo "FATAL: robots.txt missing"; exit 1; }
+          test -f docs/dist/sitemap.xml || { echo "FATAL: sitemap.xml missing"; exit 1; }
+          test -f docs/dist/favicon.png || { echo "FATAL: favicon.png missing"; exit 1; }
+          echo "Artifact validation passed ($DOCS_COUNT routes)"
+
+      - name: Configure Pages
+        if: github.event_name != 'pull_request'
+        id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs/dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,38 @@
+name: 💡 Feature request
+description: Suggest a capability for APICordon; use cases carry the most weight
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        APICordon is in early development, so now is the best time to shape it. Concrete use cases ("I would want X discovered/correlated/fed back because…") are far more useful than feature lists.
+
+        **Never include credentials, tokens or private data in this request.**
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do, and what gets in the way today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What you imagine APICordon doing. How would it show up in your repository or pull requests?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other tools, workarounds or designs you have tried or considered.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I have searched existing issues and discussions for this idea
+          required: true
+        - label: This request contains no secrets or private data
+          required: true

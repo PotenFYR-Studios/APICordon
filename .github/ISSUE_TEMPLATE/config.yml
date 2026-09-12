@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support Discord
+    url: https://discord.com/invite/zUaN2FPBec
+    about: "Community Discord: questions, ideas and help across the ecosystem"
+  - name: Documentation
+    url: https://apicordon.docs.potenfyr.in
+    about: "APICordon docs: how it works, roadmap, security and examples"
