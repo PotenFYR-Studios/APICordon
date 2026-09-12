@@ -47,8 +47,9 @@ jobs:
       - name: Verify production output
         run: |
           test -f _site/index.html || { echo "FATAL: _site/index.html missing"; exit 1; }
-          test -f _site/CNAME && grep -qx "apicordon.docs.potenfyr.in" _site/CNAME \
-            || { echo "FATAL: CNAME missing/incorrect"; exit 1; }
+          # Domain is set in repo Pages settings; CNAME in artifact is optional.
+          if [ -f _site/CNAME ]; then grep -qx "apicordon.docs.potenfyr.in" _site/CNAME \
+            || echo "WARN: CNAME present but different"; fi
           test -f _site/robots.txt || echo "WARN: robots.txt missing"
           test -f _site/sitemap.xml || echo "WARN: sitemap.xml missing"
           echo "Artifact validation passed"
