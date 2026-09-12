@@ -68,12 +68,47 @@ Please report suspected vulnerabilities **privately** via [GitHub security advis
 
 Licensed under **Apache-2.0 with Commons Clause**; the [LICENSE](https://github.com/PotenFYR-Studios/APICordon/blob/master/LICENSE) file is authoritative. In plain terms: fork, modify, use, self-host and redistribute APICordon for free, including commercial use and building products or services around it. The Commons Clause withholds selling the software itself, or charging for a product or service whose value derives entirely or substantially from its functionality, and PotenFYR names and trademarks stay unlicensed. Keep the required license notices, including the Commons Clause notice. A [plain-language license guide](https://apicordon.docs.potenfyr.in/about/#license) goes deeper on the docs site.
 
+## Contributing
+
+Contributions make the open-source community such an amazing place to learn, inspire and create. Any contributions you make are **greatly appreciated** - see [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/PotenFYR-Studios/APICordon/labels/good%20first%20issue). Security concerns: please use [SECURITY.md](SECURITY.md) (private vulnerability reporting), not public issues.
+
+<a href="https://github.com/PotenFYR-Studios/APICordon/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PotenFYR-Studios/APICordon" alt="APICordon contributors" />
+</a>
+<a href="https://github.com/PotenFYR-Studios/APICordon/stargazers">
+  <img src="https://img.shields.io/github/stars/PotenFYR-Studios/APICordon?style=social&label=Stars" alt="Live star count" />
+</a>
+<a href="https://github.com/PotenFYR-Studios/APICordon/network/members">
+  <img src="https://img.shields.io/github/forks/PotenFYR-Studios/APICordon?style=social&label=Forks" alt="Live fork count" />
+</a>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" />
+  <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" width="100%" />
+</picture>
+
+
 ---
 
 <!-- markdownlint-disable -->
+
+
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20PotenFYR%20Studios&fontSize=22&fontColor=ffffff&animation=twinkling" width="100%" alt="footer"/>
 
 </div>
 <!-- markdownlint-enable -->
+
+---
+
+## ⭐ Star History
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/authcore,potenfyr-studios/statfyr,potenfyr-studios/discord-botlists,potenfyr-studios/vigilfyr,potenfyr-studios/shell-eggs,potenfyr-studios/prog-language-eggs,potenfyr-studios/minecraft-eggs,potenfyr-studios/database-eggs,potenfyr-studios/apicordon,potenfyr-studios/ojaj,potenfyr-studios/fyrwall,potenfyr-studios/echoingdeaths&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/authcore,potenfyr-studios/statfyr,potenfyr-studios/discord-botlists,potenfyr-studios/vigilfyr,potenfyr-studios/shell-eggs,potenfyr-studios/prog-language-eggs,potenfyr-studios/minecraft-eggs,potenfyr-studios/database-eggs,potenfyr-studios/apicordon,potenfyr-studios/ojaj,potenfyr-studios/fyrwall,potenfyr-studios/echoingdeaths&type=Date" />
+  <img alt="Star history chart for all PotenFYR Studios public repositories" src="https://api.star-history.com/svg?repos=potenfyr-studios/authcore,potenfyr-studios/statfyr,potenfyr-studios/discord-botlists,potenfyr-studios/vigilfyr,potenfyr-studios/shell-eggs,potenfyr-studios/prog-language-eggs,potenfyr-studios/minecraft-eggs,potenfyr-studios/database-eggs,potenfyr-studios/apicordon,potenfyr-studios/ojaj,potenfyr-studios/fyrwall,potenfyr-studios/echoingdeaths&type=Date" width="80%" />
+</picture>
+
+Every public PotenFYR Studios repository on one live chart, served by [star-history.com](https://star-history.com).
