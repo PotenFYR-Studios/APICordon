@@ -56,7 +56,7 @@ export default function Landing() {
       <section className="relative overflow-hidden px-6 pb-16 pt-[72px]">
         <DotPattern />
         <GlowOrb
-          className="-top-48 left-[8%] animate-[cordPulse_5s_ease-in-out_infinite]"
+          className="-top-48 left-[8%]"
           color="rgba(139,92,246,0.18)"
           size={550}
         />
